@@ -6,7 +6,7 @@ const port = 3000;
 
 app.use(express.json())
 
-app.use('/',route)
+app.use('/api',route)
 
 app.listen(port, ()=>{
   console.log(`Server running at http://localhost:${port}`);

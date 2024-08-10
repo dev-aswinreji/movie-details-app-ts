@@ -1,12 +1,11 @@
-import express from 'express'
+import express from "express";
 
-import { homeGet, signupPost } from "../controller/homeGet";
+import { homeGet, movieSearchPost, signupPost } from "../controller/homeGet";
 
-const route = express.Router()
+const route = express.Router();
 
-route.get('/',homeGet)
-route.post('/signup',signupPost)
+route.get("/movie", homeGet);
+route.post("/search", movieSearchPost);
+route.post("/signup", signupPost);
 
-export default route
-
-
+export default route;
