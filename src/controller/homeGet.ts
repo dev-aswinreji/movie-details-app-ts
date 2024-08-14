@@ -52,11 +52,19 @@ export const movieSearchPost = async (req: Request, res: Response) => {
 export const signupPost = async (req: Request, res: Response) => {
   try {
     const userDetails: User = req.body;
+    log(userDetails, "user details is showing");
     const queryAdding = await pool.query(
-      `INSERT INTO customers (customer_name,customer_password,customer_email) values(${userDetails})`,
-    );
-    log(queryAdding, "adding to data base");
+    ,)
+    console.log(queryAdding,'query adding');
+    
+    const userdetails = await pool.query(`SELECT * FROM customers`)
+    console.table(userdetails);
+
+    ;
+    //log(queryAdding, "adding to data base");
+    //const userdetails = await pool.query('SELECT * FROM customers')
+    console.table(userdetails)
   } catch (error) {
-    console.error("Error caught in Sign Up Post controller");
+    console.error("Error caught in Sign Up Post controller",error);
   }
 };
